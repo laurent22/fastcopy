@@ -397,6 +397,7 @@ public:
 	virtual BOOL	EvCommand(WORD wNotifyCode, WORD wID, LPARAM hwndCtl);
 	virtual BOOL	EvSysCommand(WPARAM uCmdType, POINTS pos);
 	virtual BOOL	EvQueryOpen(void);
+	virtual BOOL    EvTaskbarButtonCreated();
 
 	virtual	BOOL	PreProcMsg(MSG *msg);
 	virtual LRESULT	WinProc(UINT uMsg, WPARAM wParam, LPARAM lParam);

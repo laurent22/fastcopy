@@ -57,8 +57,16 @@ LRESULT TDlg::WinProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	LRESULT	result = 0;
 
+  UINT uTaskbarBtnCreatedMsg = RegisterWindowMessage ( _T("TaskbarButtonCreated") );
+
+  if (uMsg == uTaskbarBtnCreatedMsg) {
+    EvTaskbarButtonCreated();
+    return 0;
+  }
+
 	switch (uMsg)
 	{
+
 	case WM_INITDIALOG:
 		if (rect.left != CW_USEDEFAULT && !(::GetWindowLong(hWnd, GWL_STYLE) & WS_CHILD)) {
 			MoveWindow(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top,FALSE);
@@ -262,6 +270,11 @@ BOOL TDlg::EvCommand(WORD wNotifyCode, WORD wID, LPARAM hwndCtl)
 	}
 
 	return	FALSE;
+}
+
+BOOL TDlg::EvTaskbarButtonCreated()
+{
+	return	TRUE;
 }
 
 BOOL TDlg::EvQueryOpen(void)

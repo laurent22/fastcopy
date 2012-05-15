@@ -2,6 +2,7 @@
 // Microsoft Developer Studio generated include file.
 // Used by install.rc
 //
+#define IDC_STATIC                        -1
 #define IDS_MKDIR                       1
 #define IDS_RMDIR                       2
 #define IDS_SETUPCOMPLETE               3

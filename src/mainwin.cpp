@@ -80,6 +80,7 @@ TMainDlg::TMainDlg() : TDlg(MAIN_DIALOG), aboutDlg(this), setupDlg(&cfg, this),
 {
 	WCHAR	*user_dir = NULL;
 	WCHAR	*virtual_dir = NULL;
+  taskbarList = NULL;
 
 	orgArgv = CommandLineToArgvV(::GetCommandLineV(), &orgArgc);
 	if (IsWinVista() && TIsUserAnAdmin() && TIsEnableUAC()) {
@@ -1830,6 +1831,21 @@ BOOL TMainDlg::EventActivateApp(BOOL fActivate, DWORD dwThreadID)
 {
 	CheckVerifyExtension();
 	return	FALSE;
+}
+
+BOOL TMainDlg::EvTaskbarButtonCreated()
+{
+  // TODO: Release if already created
+  // TODO: Check Windows 7
+  if (taskbarList) {
+    taskbarList->Release();
+    taskbarList = NULL;
+  }
+  HRESULT hr = CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&taskbarList));
+  if (!SUCCEEDED(hr)) {
+    // FAIL
+  }
+  return FALSE;
 }
 
 BOOL TMainDlg::EventUser(UINT uMsg, WPARAM wParam, LPARAM lParam)

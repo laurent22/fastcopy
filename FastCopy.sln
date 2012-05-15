@@ -1,13 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C++ Express 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shellext", "shellext.vcproj", "{DD8C289F-DDEB-4664-A8CD-65A2B067A1DF}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shellext", "shellext.vcxproj", "{DD8C289F-DDEB-4664-A8CD-65A2B067A1DF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "install", "install.vcproj", "{81F0F7E1-E0A4-4907-9BBD-B13B5B19474A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "install", "install.vcxproj", "{81F0F7E1-E0A4-4907-9BBD-B13B5B19474A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shellex64", "shellex64.vcproj", "{670B6D36-1AFE-463D-8311-D929C25AF68E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shellex64", "shellex64.vcxproj", "{670B6D36-1AFE-463D-8311-D929C25AF68E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FastCopy", "FastCopy.vcproj", "{D6FF3145-1A10-4739-8E42-C5327BF51584}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FastCopy", "FastCopy.vcxproj", "{D6FF3145-1A10-4739-8E42-C5327BF51584}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

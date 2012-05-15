@@ -21,6 +21,13 @@
 #include <stddef.h>
 
 
+#include "ShObjIdl.h"
+
+
+
+
+
+
 #ifdef _WIN64
 #define FASTCOPY_TITLE		"FastCopy(64bit)"
 #else
@@ -90,6 +97,7 @@ protected:
 	int				lastTotalSec;
 	int				calcTimes;
 	BOOL			isAbort;
+	ITaskbarList3* taskbarList;
 
 /* share to runas */
 	AutoCloseLevel autoCloseLevel;
@@ -222,6 +230,7 @@ public:
 	virtual ~TMainDlg();
 
 	virtual BOOL	EvCreate(LPARAM lParam);
+	virtual BOOL	EvTaskbarButtonCreated();
 	virtual BOOL	EvCommand(WORD wNotifyCode, WORD wID, LPARAM hwndCtl);
 	virtual BOOL	EvNcDestroy(void);
 	virtual BOOL	EvTimer(WPARAM timerID, TIMERPROC proc);

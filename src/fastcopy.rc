@@ -1,0 +1,1517 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+MAIN_DIALOG DIALOGEX 0, 0, 186, 329
+STYLE DS_3DLOOK | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_DISABLED | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_ACCEPTFILES
+CAPTION "FastCopy"
+MENU MAIN_MENU
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "実行",IDOK,143,144,42,16
+    PUSHBUTTON      "Source",SRC_FILE_BUTTON,4,4,29,14
+    COMBOBOX        SRC_COMBO,36,4,146,165,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    CBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "DestDir",DST_FILE_BUTTON,4,21,29,14
+    COMBOBOX        DST_COMBO,36,21,146,156,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        MODE_COMBO,109,40,71,99,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        BUFSIZE_EDIT,145,56,17,13,ES_AUTOHSCROLL
+    CONTROL         "Slider1",SPEED_SLIDER,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,99,71,46,15
+    CONTROL         "エラー時継続",IGNORE_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,102,94,48,10
+    CONTROL         "ベリファイ",VERIFY_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,102,109,38,11
+    CONTROL         "予測",ESTIMATE_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,102,125,27,11
+    CONTROL         "ACL属性",ACL_CHECK,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,6,149,38,11
+    CONTROL         "復元無効化（上書き後に削除）",OWDEL_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,6,149,96,11
+    CONTROL         "副次Stream",STREAM_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,50,149,46,11
+    CONTROL         "フィルタ",FILTER_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    BS_VCENTER | WS_GROUP | WS_TABSTOP,152,173,30,12
+    COMBOBOX        INCLUDE_COMBO,4,174,71,78,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    CBS_SORT | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        EXCLUDE_COMBO,77,174,71,78,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_DISABLED | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        FROMDATE_COMBO,4,199,45,56,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        TODATE_COMBO,51,199,44,56,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        MINSIZE_COMBO,100,199,41,56,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        MAXSIZE_COMBO,142,199,41,56,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "?",HELP_BUTTON,170,56,12,13,0,WS_EX_STATICEDGE
+    CONTROL         "Top",TOPLEVEL_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,163,90,18,13
+    PUSHBUTTON      "ﾘｽﾄｱｯﾌﾟ",LIST_BUTTON,103,144,37,15,BS_MULTILINE
+    CONTROL         "",PATH_EDIT,"RICHEDIT20A",WS_VSCROLL | WS_HSCROLL | 
+                    0x8c4,4,216,178,47,WS_EX_STATICEDGE
+    CONTROL         "",ERR_EDIT,"RICHEDIT20A",WS_VSCROLL | 0x8c4,4,279,178,
+                    47,WS_EX_STATICEDGE
+    CTEXT           "Buffer(MB)",BUF_STATIC,106,59,35,10
+    CTEXT           "",SAMEDRV_STATIC,133,125,51,12,0,WS_EX_STATICEDGE
+    EDITTEXT        STATUS_EDIT,4,40,94,86,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
+                    WS_EX_STATICEDGE
+    LTEXT           "エラーログ",ERR_STATIC,4,268,28,8
+    LTEXT           "(ErrFiles : 0 / ErrDirs : 0)",ERRSTATUS_STATIC,36,268,
+                    146,8
+    LTEXT           "Include name",INC_STATIC,8,164,54,8
+    LTEXT           "Exclude name",EXC_STATIC,81,164,62,8
+    PUSHBUTTON      "直ちに開始 （現在、待機中...）",ATONCE_BUTTON,4,129,96,
+                    16
+    LTEXT           "",JOBTITLE_STATIC,173,104,8,8,NOT WS_VISIBLE | 
+                    WS_DISABLED,WS_EX_CLIENTEDGE
+    CTEXT           "Full Speed",SPEED_STATIC,146,77,36,10,SS_SUNKEN
+    PUSHBUTTON      "",RUNAS_BUTTON,98,40,10,14,BS_ICON | NOT WS_VISIBLE
+    LTEXT           "ToDate",TODATE_STATIC,52,190,22,8
+    LTEXT           "FromDate",FROMDATE_STATIC,6,190,30,8
+    LTEXT           "MaxSize",MAXSIZE_STATIC,145,190,25,8
+    LTEXT           "MinSize",MINSIZE_STATIC,102,190,23,8
+END
+
+INPUT_DIALOG DIALOG DISCARDABLE  0, 0, 102, 40
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "新規ディレクトリ名"
+FONT 9, "MS UI Gothic"
+BEGIN
+    EDITTEXT        INPUT_EDIT,7,4,88,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "作成",IDOK,11,20,47,14
+    PUSHBUTTON      "中止",IDCANCEL,64,20,25,14
+END
+
+CONFIRM_DIALOG DIALOGEX 0, 0, 135, 70
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "エラー発生"
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "続行",IDOK,2,54,39,14
+    PUSHBUTTON      "常に続行",IDIGNORE,46,54,47,14
+    PUSHBUTTON      "中止",IDCANCEL,98,54,34,14
+    EDITTEXT        MESSAGE_EDIT,2,2,131,47,ES_MULTILINE | ES_READONLY | NOT 
+                    WS_BORDER | WS_VSCROLL | NOT WS_TABSTOP,
+                    WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE
+END
+
+COPYCONFIRM_DIALOG DIALOGEX 0, 0, 154, 119
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "コピーします"
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "実行",IDOK,54,99,39,15
+    PUSHBUTTON      "キャンセル",IDCANCEL,103,99,34,14
+    PUSHBUTTON      "",RUNAS_BUTTON,141,98,10,15,BS_ICON | NOT WS_VISIBLE
+    EDITTEXT        SRC_EDIT,2,15,149,40,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL | NOT WS_TABSTOP
+    EDITTEXT        DST_EDIT,2,70,149,24,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL | NOT WS_TABSTOP
+    LTEXT           "Source",IDC_STATIC,3,4,27,10
+    LTEXT           "DestDir",DST_STATIC,2,59,26,9
+    PUSHBUTTON      "?",HELP_CONFIRM_BUTTON,5,101,12,13,NOT WS_VISIBLE,
+                    WS_EX_STATICEDGE
+END
+
+ABOUT_DIALOG DIALOGEX 0, 0, 147, 80
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "FastCopy について"
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,48,59,50,14
+    PUSHBUTTON      "http://ipmsg.org/tools/fastcopy.html",URL_BUTTON,7,36,
+                    133,17,0,WS_EX_CLIENTEDGE
+    CTEXT           "%s %s\r\n\r\n%s",ABOUT_STATIC,26,5,114,28,SS_SUNKEN
+    ICON            FASTCOPY_ICON,IDC_STATIC,5,5,18,20
+END
+
+SHELLEXT_DIALOG DIALOG DISCARDABLE  0, 0, 223, 182
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "シェル拡張設定"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    DEFPUSHBUTTON   "拡張実行",IDSHELLEXT_OK,176,7,37,14
+    PUSHBUTTON      "拡張取消",IDSHELLEXT_CANCEL,176,25,37,14
+    PUSHBUTTON      "閉じる",IDOK,176,44,37,14
+    CONTROL         "「コピー（FastCopy）」を出す",RIGHT_COPY_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,11,80,92,13
+    CONTROL         "「削除（FastCopy）」を出す",RIGHT_DELETE_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,11,96,89,12
+    CONTROL         "「貼り付け（FastCopy）」を出す",RIGHT_PASTE_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,111,97,12
+    CONTROL         "サブメニュー化",RIGHT_SUBMENU_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,11,126,81,12
+    CONTROL         "「コピー（FastCopy）」を出す",DD_COPY_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,121,80,90,12
+    CONTROL         "「移動（FastCopy）」を出す",DD_MOVE_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,121,95,91,12
+    CONTROL         "サブメニュー化",DD_SUBMENU_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,121,110,81,12
+    CONTROL         "削除確認しない（危険）",NOCONFIRMDEL_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,146,77,12
+    CONTROL         "コピー(ドラッグ＆ドロップ)/移動/貼り付けを確認しない",
+                    NOCONFIRM_CHECK,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,10,161,172,10
+    CONTROL         "タスクトレイで実行",TASKTRAY_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,121,130,68,12
+    CONTROL         "正常終了時に Auto Close",AUTOCLOSE_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,121,145,93,12
+    GROUPBOX        "右クリックメニュー拡張",IDC_STATIC,6,68,106,73
+    GROUPBOX        "ドラッグ＆ドロップ拡張",IDC_STATIC,117,68,99,59
+    LTEXT           "拡張実行後は、FastCopyフォルダを移動・削除できなくなります。（ExplorerがFastCopyシェル拡張DLLを開いたままにするため）\r\n\r\n移動・削除したい場合、拡張取消後、OS再起動または再ログインしてください。",
+                    IDC_STATIC,7,7,159,53,SS_SUNKEN
+END
+
+DELCONFIRM_DIALOG DIALOG DISCARDABLE  0, 0, 154, 69
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "以下のファイルを全削除します"
+FONT 9, "MS UI Gothic"
+BEGIN
+    DEFPUSHBUTTON   "実行",IDOK,55,52,43,15
+    PUSHBUTTON      "キャンセル",IDCANCEL,103,52,37,15
+    PUSHBUTTON      "",RUNAS_BUTTON,143,52,10,15,BS_ICON | NOT WS_VISIBLE
+    EDITTEXT        SRC_EDIT,2,2,149,44,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL | NOT WS_TABSTOP
+    CONTROL         "復元無効化\r\n（上書き）",OWDEL_CHECK,"Button",
+                    BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,4,50,48,17
+END
+
+SETUP_DIALOG DIALOG DISCARDABLE  0, 0, 271, 117
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "一般設定"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,5,80,60,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,5,98,60,14
+    LISTBOX         SETUP_LIST,4,8,63,68,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+JOB_DIALOG DIALOG DISCARDABLE  0, 0, 131, 76
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ジョブ追加/更新・削除"
+FONT 9, "MS UI Gothic"
+BEGIN
+    COMBOBOX        TITLE_COMBO,4,5,120,104,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "追加・更新",IDOK,86,23,40,19
+    CTEXT           "現在のメインウィンドウ内設定を追加・更新します",
+                    JOB_STATIC,4,23,79,20,SS_SUNKEN
+    CTEXT           "選択したジョブを削除します",IDC_STATIC,4,50,79,20,
+                    SS_SUNKEN
+    PUSHBUTTON      "削除",JOBDEL_BUTTON,86,50,40,20
+END
+
+MESSAGE_DIALOG DIALOG DISCARDABLE  0, 0, 149, 51
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "FastCopy"
+FONT 9, "MS UI Gothic"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,25,34,47,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",IDCANCEL,77,34,48,14
+    EDITTEXT        MESSAGE_EDIT,2,3,144,29,ES_CENTER | ES_MULTILINE | 
+                    ES_READONLY | NOT WS_BORDER | WS_VSCROLL
+END
+
+FINACTION_DIALOG DIALOG DISCARDABLE  0, 0, 191, 226
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "終了時処理"
+FONT 9, "MS UI Gothic"
+BEGIN
+    COMBOBOX        TITLE_COMBO,37,6,81,99,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    DEFPUSHBUTTON   "作成/変更",ADD_BUTTON,133,3,42,14
+    PUSHBUTTON      "削除",DEL_BUTTON,133,20,42,14
+    PUSHBUTTON      "選択",SOUND_BUTTON,9,48,26,13
+    EDITTEXT        SOUND_EDIT,37,48,143,12,ES_AUTOHSCROLL
+    CONTROL         "エラー発生時のみ実行する",SOUNDERR_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,65,121,13
+    PUSHBUTTON      "再生",PLAY_BUTTON,145,62,33,14
+    PUSHBUTTON      "選択",CMD_BUTTON,9,117,26,13
+    GROUPBOX        "コマンド実行",IDC_STATIC,5,86,181,64
+    EDITTEXT        CMD_EDIT,37,119,143,12,ES_AUTOHSCROLL
+    CONTROL         "エラー発生時には実行しない",CMDERR_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,134,98,13
+    CONTROL         "完了を待つ",WAITCMD_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,109,136,68,10
+    CONTROL         "サスペンド",SUSPEND_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,11,168,66,14
+    CONTROL         "ハイバネーション",HIBERNATE_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,11,184,66,14
+    CONTROL         "シャットダウン",SHUTDOWN_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,11,200,66,14
+    EDITTEXT        SHUTDOWNTIME_EDIT,142,167,20,14,ES_RIGHT | ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "強制実行",FORCE_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,86,184,43,13
+    CONTROL         "エラー発生時には実行しない",SHUTDOWNERR_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,86,200,90,13
+    LTEXT           "秒",IDC_STATIC,166,169,13,11
+    LTEXT           "猶予",IDC_STATIC,125,169,14,11
+    GROUPBOX        "サウンド再生",IDC_STATIC,5,35,181,46
+    GROUPBOX        "シャットダウン/サスペンド",IDC_STATIC,5,154,181,68
+    LTEXT           "処理名",IDC_STATIC,8,8,27,11
+    LTEXT           "空白を含むパス名は""""で囲みます。 セミコロンで複数コマンドが指定可能です。 例） ""C:\\a b\\c.exe"" -x; C:\\d\\e.exe",
+                    IDC_STATIC,14,98,165,15
+END
+
+SETUP_SHEET1 DIALOG DISCARDABLE  0, 0, 202, 105
+STYLE WS_CHILD | WS_TABSTOP
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    EDITTEXT        BUFSIZE_EDIT,11,17,21,14,ES_AUTOHSCROLL
+    CONTROL         "完了時間予測",ESTIMATE_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,43,4,55,11
+    CONTROL         "エラー時継続",IGNORE_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,43,20,56,11
+    CONTROL         "ACL属性",ACL_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,102,4,43,11
+    CONTROL         "副次Stream",STREAM_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,102,20,49,11
+    CONTROL         "ベリファイ",VERIFY_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,150,4,44,11
+    CONTROL         "",SPEED_SLIDER,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,36,39,47,15
+    CONTROL         "復元無効化 （削除モード用。事前に上書きするため遅い）",
+                    OWDEL_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,64,
+                    178,11
+    CONTROL         "拡張フィルタ（日付/サイズフィルタ）を常に表示する",
+                    EXTENDFILTER_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    BS_MULTILINE | WS_TABSTOP,5,78,168,11
+    CTEXT           "Full Speed",SPEED_STATIC,85,43,38,10,SS_SUNKEN
+    LTEXT           "Buffer(MB)",IDC_STATIC,4,6,35,10
+    LTEXT           "速度調整",IDC_STATIC,5,45,30,10
+END
+
+SETUP_SHEET2 DIALOG DISCARDABLE  0, 0, 205, 113
+STYLE WS_CHILD | WS_TABSTOP
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    EDITTEXT        MAXTRANS_EDIT,59,3,19,13,ES_AUTOHSCROLL
+    CONTROL         "読込み側OSキャッシュ利用 （OSが重くなりやすい）",
+                    READOSBUF_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,
+                    20,166,10
+    EDITTEXT        NONBUFMINNTFS_EDIT,35,57,23,12,ES_AUTOHSCROLL
+    EDITTEXT        NONBUFMINFAT_EDIT,88,57,24,12,ES_AUTOHSCROLL
+    LTEXT           "最大I/O単位(MB)",IDC_STATIC,3,6,54,11
+    LTEXT           "NTFS系",IDC_STATIC,8,58,24,8
+    LTEXT           "指定サイズ(KB)未満の小さなファイルの書込みには、\r\nOSキャッシュを利用する",
+                    IDC_STATIC,3,38,182,18
+    LTEXT           "FAT系",IDC_STATIC,66,59,22,8
+    EDITTEXT        DRIVEMAP_EDIT,5,89,55,13,ES_AUTOHSCROLL
+    LTEXT           "物理HDDグループの手動指定",IDC_STATIC,2,77,113,12
+    LTEXT           "（C:D: E:F:が同一HDDの場合、""CD,EF""）",IDC_STATIC,64,
+                    91,124,11
+END
+
+SETUP_SHEET3 DIALOG DISCARDABLE  0, 0, 204, 139
+STYLE WS_CHILD | WS_TABSTOP
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    CONTROL         "コピー元と同一フォルダへのコピーはリネームして、動作継続",
+                    SAMEDIR_RENAME_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    BS_MULTILINE | WS_TABSTOP,4,3,189,11
+    CONTROL         "フィルター使用時、空フォルダは作成しない",
+                    EMPTYDIR_CHECK,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,4,17,184,11
+    CONTROL         "Junction/Symlink は、（実体/配下ではなく）それ自体をコピー",
+                    REPARSE_CHECK,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,4,31,191,11
+    CONTROL         "「移動（全上書き）」を「移動（日付・サイズ）」 に変更",
+                    MOVEATTR_CHECK,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,4,46,177,11
+    CONTROL         "移動を逐次方式に",SERIALMOVE_CHECK,"Button",
+                    BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,4,60,71,11
+    CONTROL         "移動を逐次方式に（ベリファイ時）",
+                    SERIALVERIFYMOVE_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    BS_MULTILINE | WS_TABSTOP,4,75,110,11
+END
+
+SETUP_SHEET5 DIALOG DISCARDABLE  0, 0, 204, 123
+STYLE WS_CHILD | WS_TABSTOP
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    EDITTEXT        HISTORY_EDIT,137,3,21,13,ES_AUTOHSCROLL
+    CONTROL         "エラーログを記録 (fastcopy.log)",ERRLOG_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,4,19,107,11
+    CONTROL         "ログはUTF-8を利用",UTF8LOG_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,4,33,77,11
+    CONTROL         "ファイルログを記録(Log\\日付.log)",FILELOG_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,47,115,11
+    LTEXT           "Source/DestDir の履歴数(再起動後に有効)",IDC_STATIC,4,5,
+                    128,9
+    CONTROL         "ACLエラーをログに記録する",ACLERRLOG_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,4,61,141,11
+    CONTROL         "副次Streamエラーをログに記録する",STREAMERRLOG_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,75,141,11
+END
+
+SETUP_SHEET4 DIALOG DISCARDABLE  0, 0, 204, 139
+STYLE WS_CHILD | WS_TABSTOP
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    CONTROL         "復元無効化にNSA方式を使う （３回上書きのためとても遅い）",
+                    NSA_CHECK,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,1,4,191,11
+    CONTROL         "フィルタ指定での削除時にも、フォルダ削除を試みる",
+                    DELDIR_CHECK,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,1,18,184,11
+END
+
+SETUP_SHEET6 DIALOG DISCARDABLE  0, 0, 204, 123
+STYLE WS_CHILD | WS_TABSTOP
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    CONTROL         "他のFastCopyが動作中の場合も、直ちに実行開始する",
+                    FORCESTART_CHECK,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,2,5,184,11
+    CONTROL         "実行前に確認ダイアログ",EXECCONFIRM_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,2,19,83,11
+    CONTROL         "英語UI （再起動後に有効）",LCID_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,2,33,94,11
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO MOVEABLE PURE 
+BEGIN
+    MAIN_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        TOPMARGIN, 4
+        BOTTOMMARGIN, 326
+    END
+
+    INPUT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 95
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 33
+    END
+
+    CONFIRM_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 133
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 68
+    END
+
+    COPYCONFIRM_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 151
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 117
+    END
+
+    ABOUT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 140
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 73
+    END
+
+    SHELLEXT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 216
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 175
+    END
+
+    DELCONFIRM_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 151
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 67
+    END
+
+    JOB_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 126
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 70
+    END
+
+    MESSAGE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 146
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 48
+    END
+
+    FINACTION_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 186
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 222
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,0,8,0
+ PRODUCTVERSION 2,0,8,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104b0"
+        BEGIN
+            VALUE "Comments", "http://ipmsg.org/tools/fastcopy.html\0"
+            VALUE "CompanyName", "SHIROUZU Hiroaki\0"
+            VALUE "FileDescription", "FastCopy\0"
+            VALUE "FileVersion", "2, 0, 8, 0\0"
+            VALUE "InternalName", "FastCopy\0"
+            VALUE "LegalCopyright", "Copyright (C) 2004-2011 SHIROUZU Hiroaki All rights reserved.\0"
+            VALUE "OriginalFilename", "FastCopy.exe\0"
+            VALUE "ProductName", "FastCopy\0"
+            VALUE "ProductVersion", "2, 0, 8, 0\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+FASTCOPY_ICON           ICON    DISCARDABLE     "fastcopy.ico"
+FASTCOPY2_ICON          ICON    DISCARDABLE     "fastcopy2.ico"
+FASTCOPY3_ICON          ICON    DISCARDABLE     "fastcopy3.ico"
+FASTCOPY4_ICON          ICON    DISCARDABLE     "fastcopy4.ico"
+FCWAIT_ICON             ICON    DISCARDABLE     "fcwait.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+MAIN_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "ファイル(&F)"
+    BEGIN
+        MENUITEM "FastCopyDir(&F)",             OPENDIR_MENUITEM
+        MENUITEM "ログを開く(&O)",              OPENLOG_MENUITEM
+        MENUITEM SEPARATOR
+        MENUITEM "位置固定(&P)",                FIXPOS_MENUITEM
+        MENUITEM "サイズ固定(&S)",              FIXSIZE_MENUITEM
+        MENUITEM SEPARATOR
+        MENUITEM "閉じる(&C)",                  CLOSE_MENUITEM
+    END
+    POPUP "ジョブ管理(&J)"
+    BEGIN
+        MENUITEM "ジョブ追加/更新/削除...(&J)", JOB_MENUITEM
+        MENUITEM SEPARATOR
+    END
+    POPUP "設定(&S)"
+    BEGIN
+        MENUITEM "一般設定(&M)",                SETUP_MENUITEM
+        MENUITEM "シェル拡張設定(&S)",          SHELLEXT_MENUITEM
+        MENUITEM SEPARATOR
+        MENUITEM "自動HDDモード",               AUTODISK_MENUITEM
+        MENUITEM "同一HDDモード",               SAMEDISK_MENUITEM
+        MENUITEM "別HDDモード",                 DIFFDISK_MENUITEM
+        MENUITEM SEPARATOR
+        POPUP "終了時処理(&P)"
+        BEGIN
+            MENUITEM SEPARATOR
+            MENUITEM "追加/変更/削除...",           FINACT_MENUITEM
+        END
+        MENUITEM "拡張フィルタ表示(&F)",        EXTENDFILTER_MENUITEM
+        MENUITEM "Source⇔DestDirを交換(&W)",   SWAPTARGET_MENUITEM
+    END
+    POPUP "ヘルプ(&H)"
+    BEGIN
+        MENUITEM "ヘルプ(&H)",                  HELP_MENUITEM
+        MENUITEM "最新版URL(&N)",               FASTCOPYURL_MENUITEM
+        MENUITEM "FastCopyについて(&A)",        ABOUT_MENUITEM
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCEL ACCELERATORS MOVEABLE PURE 
+BEGIN
+    "K",            IDR_DISKMODE,           VIRTKEY, CONTROL, NOINVERT
+    "S",            IDR_SWAPTARGET,         VIRTKEY, CONTROL, ALT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 24
+//
+
+1                       24      MOVEABLE PURE   "fastcopy.exe.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_MKDIR               "作成"
+    IDS_RMDIR               "削除"
+    IDS_SRC_SELECT          "コピー元フォルダ選択"
+    IDS_DST_SELECT          "コピー先フォルダ選択"
+    IDS_SAMEDISK            "同一HDD mode"
+    IDS_DIFFDISK            "別HDD mode"
+    IDS_FIX_SAMEDISK        "同一HDD固定"
+    IDS_FIX_DIFFDISK        "別HDD固定"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ALLSKIP             "差分（上書きなし）"
+    IDS_ATTRCMP             "差分（サイズ・日付）"
+    IDS_UPDATECOPY          "差分（最新日付）"
+    IDS_FORCECOPY           "コピー（全上書き）"
+    IDS_SYNCCOPY            "同期（サイズ・日付）"
+    IDS_MUTUAL              "同期（相互最新）"
+    IDS_MOVEATTR            "移動（サイズ・日付）"
+    IDS_MOVEFORCE           "移動（全上書き）"
+    IDS_DELETE              "全削除"
+    IDS_EXECUTE             "実行"
+    IDS_CANCEL              "中断..."
+    IDS_BEHAVIOR            "DestDir指定の末尾に \\ があるかどうかで、挙動が変化します。詳しくは「？」ボタンを押して、ヘルプを参照してください"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_UPDATE              "旧バージョンのシェル拡張が使われているので、シェル登録を更新します"
+    IDS_FILESELECT          "ファイル選択..."
+    IDS_DIRSELECT           "フォルダ選択ダイアログに戻る"
+    IDS_SAMEPATHERR         "コピー元とコピー先が同一です"
+    IDS_PARENTPATHERR       "親ディレクトリを子ディレクトリに移動することはできません"
+    IDS_MOVECONFIRM         "移動します"
+    IDS_SHELLEXT_MODIFY     "拡張更新"
+    IDS_SHELLEXT_EXEC       "拡張実行"
+    IDS_FASTCOPYURL         "http://ipmsg.org/tools/fastcopy.html"
+    IDS_FASTCOPYHELP        "fastcopy.chm::/fastcopy.htm"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ALLFILES_FILTER     "All Files(*.*)"
+    IDS_SHEXT1_OPT          "/shell_extension"
+    IDS_SHEXT2_OPT          "/shell_ext2"
+    IDS_SHEXT4_OPT          "/shell_ext4"
+    IDS_FCSHEXT1_OPT        "/fc_shell_ext1"
+    IDS_INCLUDE_OPT         "/include="
+    IDS_EXCLUDE_OPT         "/exclude="
+    IDS_REGEXP_OPT          "/regexp"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FORCESTART_OPT      "/force_start"
+    IDS_SKIPEMPTYDIR_OPT    "/skip_empty_dir"
+    IDS_DISKMODE_OPT        "/disk_mode="
+    IDS_DISKMODE_SAME       "same"
+    IDS_DISKMODE_DIFF       "diff"
+    IDS_DISKMODE_AUTO       "auto"
+    IDS_ACL_OPT             "/acl"
+    IDS_STREAM_OPT          "/stream"
+    IDS_OWDEL_OPT           "/overwrite_del"
+    IDS_SPEED_FULL          "full"
+    IDS_SPEED_AUTOSLOW      "autoslow"
+    IDS_SPEED_SUSPEND       "suspend"
+    IDS_REPARSE_OPT         "/reparse"
+    IDS_RUNAS_OPT           "/runas="
+    IDS_USERDIR_MENU        "UserDir(&U)"
+    IDS_LOGFILE_OPT         "/logfile="
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_NOCONFIRMSTOP_OPT   "/no_confirm_stop"
+    IDS_VERIFY_OPT          "/verify"
+    IDS_USEROLDDIR_MENU     "UserOldDir"
+    IDS_WIPEDEL_OPT         "/wipe_del"
+    IDS_SRCFILE_OPT         "/srcfile="
+    IDS_SRCFILEW_OPT        "/srcfile_w="
+    IDS_FINACT_OPT          "/postproc="
+    IDS_NOTEPAD             "notepad.exe"
+    IDS_LINKDEST_OPT        "/linkdest"
+    IDS_RECREATE_OPT        "/recreate"
+    IDS_FROMDATE_OPT        "/from_date="
+    IDS_TODATE_OPT          "/to_date="
+    IDS_MINSIZE_OPT         "/min_size="
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_EXCEPTIONLOG        "異常が発生したため、例外情報を以下に保存しました。\r\n%s\r\n\n作者に送付すると、原因究明の手がかりになります。"
+    IDS_SYNCCONFIRM         "同期します"
+    IDS_BACKSLASHERR        ": の後ろに \\ がありません。"
+    IDS_ERRSTOP             "継続できません"
+    IDS_CONFIRMFORCEEND     "強制終了しますか？"
+    IDS_STOPCONFIRM         "コピーを中止しますか？"
+    IDS_DELSTOPCONFIRM      "削除を中止しますか？"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FASTCOPY            "FastCopy"
+    IDS_USAGE               "Usage: fastcopy.exe\r\n  [/cmd=(diff | noexist_only | update | force_copy | sync | move | delete)]\r\n\r\n  [/include=""...""] [/exclude=""...""]\r\n  [/from_date=""...""] [/to_date=""...""]\r\n  [/min_size=""...""] [/max_size=""...""]\r\n\r\n  [/srcfile=pathlist_file] [/srcfile_w=unicode_pathlist_file]\r\n  [/speed=(full|autoslow|9-1|suspend)]\r\n\r\n  [/auto_close] [/force_close] [/open_window]\r\n  [/error_stop] [/no_exec] [/force_start]\r\n  [/no_confirm_del] [/no_confirm_stop]\r\n\r\n  [/acl] [/stream] [/reparse] [/verify]\r\n  [/linkdest] [/recreate]\r\n  [/wipe_del] [/skip_empty_dir]\r\n\r\n  [/disk_mode=(diff|same|auto)]\r\n  [/bufsize=N(MB)] [/estimate]\r\n  [/log] [/logfile=fname] [/utf8]\r\n  [/job=jobname] [/postproc=postproc_name]\r\n\r\n from_file_or_dir  [/to=dest_dir]"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DELCONFIRM          "削除します"
+    IDS_DUPCONFIRM          "複製を作成します"
+    IDS_NOFILTER_USAGE      "移動モードでは Filter指定は使用できません"
+    IDS_LISTCONFIRM         "リストアップを中止しますか？"
+    IDS_JOBNAME             "ジョブ名： <%s>"
+    IDS_JOBNOTFOUND         "ジョブが見つかりません"
+    IDS_LISTING             "ﾘｽﾄｱｯﾌﾟ"
+    IDS_REQUIRE_ADMIN       "管理者権限（特権）が必要です"
+    IDS_FIXPOS_MSG          "現在の位置を保存しますか？"
+    IDS_FIXSIZE_MSG         "現在のサイズを保存しますか？"
+    IDS_FINACTNAME          "終了時処理名： <%s>"
+    IDS_FINACTMENU          "終了時処理（%s）"
+    IDS_FINACT_NORMAL       "標準"
+    IDS_ELEVATE             "特権"
+    IDS_SHUTDOWN_MSG        "シャットダウンします。\r\n（自動実行まであと%2d秒）"
+    IDS_HIBERNATE_MSG       "ハイバネーションモードに入ります。\r\n（自動実行まであと%2d秒）"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CMD_NOEXIST_ONLY    "noexist_only"
+    IDS_CMD_DIFF            "diff"
+    IDS_CMD_UPDATE          "update"
+    IDS_CMD_FORCE_COPY      "force_copy"
+    IDS_CMD_SYNC            "sync"
+    IDS_CMD_MUTUAL          "mutual"
+    IDS_CMD_MOVE            "move"
+    IDS_CMD_DELETE          "delete"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CMD_OPT             "/cmd="
+    IDS_CMD_MOVEATTR        "move_diff"
+    IDS_BUFSIZE_OPT         "/bufsize="
+    IDS_ERRSTOP_OPT         "/error_stop"
+    IDS_OPENWIN_OPT         "/open_window"
+    IDS_AUTOCLOSE_OPT       "/auto_close"
+    IDS_FORCECLOSE_OPT      "/force_close"
+    IDS_NOEXEC_OPT          "/no_exec"
+    IDS_NOCONFIRMDEL_OPT    "/no_confirm_del"
+    IDS_LOG_OPT             "/log"
+    IDS_TO_OPT              "/to="
+    IDS_ESTIMATE_OPT        "/estimate"
+    IDS_JOB_OPT             "/job="
+    IDS_AUTOSLOW_OPT        "/auto_slow"
+    IDS_SPEED_OPT           "/speed="
+    IDS_UTF8LOG_OPT         "/utf8"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SUSPEND_MSG         "スタンバイモードに入ります。\r\n（自動実行まであと%2d秒）"
+    IDS_FINACT_SUSPEND      "スタンバイ"
+    IDS_FINACT_HIBERNATE    "休止"
+    IDS_FINACT_SHUTDOWN     "シャットダウン"
+    IDS_DATEFORMAT_MSG      "不正な日付指定です。\r\nYYYYMMDD       例) 20090101\r\n-numberW|D|h|m|s 例) -52W, -1D"
+    IDS_SIZEFORMAT_MSG      "不正なサイズ指定です。\r\nnumber[K|M|G|T]  ex) 100, 1K, 100M"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_MAXSIZE_OPT         "/max_size="
+    IDS_STANDBY             "Standby"
+    IDS_HIBERNATE           "Hibernate"
+    IDS_SHUTDOWN            "Shutdown"
+    IDS_FILELOG_OPT         "/filelog"
+    IDS_TRUE                "TRUE"
+    IDS_FALSE               "FALSE"
+    IDS_FILELOGNAME         "%04d%02d%02d-%02d%02d%02d-%d.log"
+    IDS_FILELOG_SUBDIR      "Log"
+    IDS_FULLSPEED_DISP      "Full Speed"
+    IDS_AUTOSLOW_DISP       "Auto Slow"
+    IDS_SUSPEND_DISP        "Suspend"
+    IDS_RATE_DISP           "%d%%"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_UNDO                "元に戻す(&U)"
+    IDS_CUT                 "切り取り(&T)"
+    IDS_COPY                "コピー(&C)"
+    IDS_PASTE               "貼り付け(&P)"
+    IDS_DEL                 "削除(&D)"
+    IDS_SELECTALL           "全て選択(&A)"
+    IDS_SETUP_SHEET1        "デフォルト設定"
+    IDS_SETUP_SHEET2        "I/O設定"
+    IDS_SETUP_SHEET3        "コピー・移動設定"
+    IDS_SETUP_SHEET4        "削除設定"
+    IDS_SETUP_SHEET5        "ログ設定"
+    IDS_SETUP_SHEET6        "その他"
+END
+
+#endif    // 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英語 (ｱﾒﾘｶ) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+SETUP_DIALOG DIALOGEX 0, 0, 279, 107
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "General Settings"
+FONT 8, "Verdana", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,4,75,69,14
+    PUSHBUTTON      "Cancel",IDCANCEL,4,90,69,14
+    LISTBOX         SETUP_LIST,4,8,72,62,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP,WS_EX_CLIENTEDGE
+END
+
+MAIN_DIALOG DIALOGEX 0, 0, 190, 315
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_DISABLED | WS_CAPTION | 
+    WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_ACCEPTFILES
+CAPTION "FastCopy"
+MENU MAIN_MENU
+FONT 8, "Verdana", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Execute",IDOK,147,145,39,14
+    PUSHBUTTON      "Source",SRC_FILE_BUTTON,4,4,29,14
+    COMBOBOX        SRC_COMBO,36,4,151,165,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    CBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "DestDir",DST_FILE_BUTTON,4,21,29,14
+    COMBOBOX        DST_COMBO,36,21,151,156,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        MODE_COMBO,113,40,73,99,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        BUFSIZE_EDIT,148,56,19,13,ES_AUTOHSCROLL
+    CONTROL         "",SPEED_SLIDER,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,106,70,43,14
+    CONTROL         "Nonstop",IGNORE_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,113,90,38,9
+    CONTROL         "Verify",VERIFY_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,113,103,37,10
+    CONTROL         "Estimate",ESTIMATE_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,113,117,39,9
+    CONTROL         "Wipe && Delete",OWDEL_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,8,151,96,11
+    CONTROL         "ACL",ACL_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,
+                    151,33,10
+    CONTROL         "AltStream",STREAM_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,48,151,46,10
+    CONTROL         "Filter",FILTER_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    BS_VCENTER | WS_GROUP | WS_TABSTOP,158,173,30,11
+    COMBOBOX        INCLUDE_COMBO,4,173,74,78,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    CBS_SORT | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        EXCLUDE_COMBO,80,173,75,78,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_DISABLED | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        FROMDATE_COMBO,4,196,48,56,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        TODATE_COMBO,53,196,47,56,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        MINSIZE_COMBO,103,196,41,56,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        MAXSIZE_COMBO,145,196,41,56,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "?",HELP_BUTTON,171,56,12,13,0,WS_EX_STATICEDGE
+    CONTROL         "Top",TOPLEVEL_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,167,90,17,12
+    PUSHBUTTON      "Listing",LIST_BUTTON,109,145,35,14,BS_MULTILINE
+    CTEXT           "Buffer(MB)",BUF_STATIC,110,59,35,10
+    CTEXT           "",SAMEDRV_STATIC,111,130,74,11,0,WS_EX_STATICEDGE
+    LTEXT           "Error Log",ERR_STATIC,4,257,36,8
+    LTEXT           "(ErrFiles : 0 / ErrDirs : 0)",ERRSTATUS_STATIC,44,257,
+                    141,8
+    EDITTEXT        STATUS_EDIT,4,40,101,89,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "Start at once (Now, waiting)",ATONCE_BUTTON,4,133,100,
+                    13,NOT WS_VISIBLE
+    CONTROL         "",PATH_EDIT,"RICHEDIT20A",WS_VSCROLL | WS_HSCROLL | 
+                    0x8c4,4,213,182,42,WS_EX_STATICEDGE
+    CONTROL         "",ERR_EDIT,"RICHEDIT20A",WS_VSCROLL | 0x8c4,4,267,183,
+                    44,WS_EX_STATICEDGE
+    LTEXT           "",JOBTITLE_STATIC,174,106,8,9,NOT WS_VISIBLE | 
+                    WS_DISABLED,WS_EX_CLIENTEDGE
+    CTEXT           "Full Speed",SPEED_STATIC,148,75,39,9,SS_SUNKEN
+    PUSHBUTTON      "",RUNAS_BUTTON,105,40,8,13,BS_ICON | NOT WS_VISIBLE
+    LTEXT           "Include name",INC_STATIC,7,163,54,8
+    LTEXT           "Exclude name",EXC_STATIC,84,163,62,8
+    LTEXT           "ToDate",TODATE_STATIC,55,187,32,7
+    LTEXT           "FromDate",FROMDATE_STATIC,6,187,34,7
+    LTEXT           "MaxSize",MAXSIZE_STATIC,148,187,35,7
+    LTEXT           "MinSize",MINSIZE_STATIC,105,187,31,7
+END
+
+INPUT_DIALOG DIALOG DISCARDABLE  0, 0, 99, 38
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Directory"
+FONT 8, "Verdana"
+BEGIN
+    EDITTEXT        INPUT_EDIT,6,4,86,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Create",IDOK,13,20,37,14
+    PUSHBUTTON      "Cancel",IDCANCEL,55,20,32,14
+END
+
+ABOUT_DIALOG DIALOGEX 0, 0, 165, 81
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About FastCopy"
+FONT 8, "Verdana", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,59,59,50,14
+    PUSHBUTTON      "http://ipmsg.org/tools/fastcopy.html.en",URL_BUTTON,7,
+                    36,151,17,0,WS_EX_CLIENTEDGE
+    CTEXT           "%s %s\r\n\r\n%s",ABOUT_STATIC,26,5,132,28,SS_SUNKEN
+    ICON            FASTCOPY_ICON,IDC_STATIC,5,5,18,20
+END
+
+CONFIRM_DIALOG DIALOGEX 0, 0, 135, 70
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Error Occured"
+FONT 8, "Verdana", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Continue",IDOK,2,54,39,14
+    PUSHBUTTON      "Always Cont.",IDIGNORE,46,54,47,14
+    PUSHBUTTON      "Stop",IDCANCEL,99,54,34,14
+    EDITTEXT        MESSAGE_EDIT,2,2,131,47,ES_MULTILINE | ES_READONLY | NOT 
+                    WS_BORDER | WS_VSCROLL | NOT WS_TABSTOP,
+                    WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE
+END
+
+COPYCONFIRM_DIALOG DIALOGEX 0, 0, 154, 117
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "Execute Copy"
+FONT 8, "Verdana", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Execute",IDOK,56,99,39,14
+    PUSHBUTTON      "Cancel",IDCANCEL,103,99,34,14
+    PUSHBUTTON      "",RUNAS_BUTTON,141,99,10,14,BS_ICON | NOT WS_VISIBLE
+    EDITTEXT        SRC_EDIT,2,15,149,40,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL | NOT WS_TABSTOP
+    EDITTEXT        DST_EDIT,2,70,149,24,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL | NOT WS_TABSTOP
+    LTEXT           "Source",IDC_STATIC,3,4,27,10
+    LTEXT           "DestDir",DST_STATIC,2,59,26,9
+    PUSHBUTTON      "?",HELP_CONFIRM_BUTTON,4,100,12,12,NOT WS_VISIBLE,
+                    WS_EX_STATICEDGE
+END
+
+DELCONFIRM_DIALOG DIALOG DISCARDABLE  0, 0, 154, 71
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "Delete All Files/Dirs"
+FONT 8, "Verdana"
+BEGIN
+    DEFPUSHBUTTON   "Execute",IDOK,58,55,39,14
+    PUSHBUTTON      "Cancel",IDCANCEL,104,55,34,14
+    PUSHBUTTON      "",RUNAS_BUTTON,143,55,10,14,BS_ICON | NOT WS_VISIBLE
+    EDITTEXT        SRC_EDIT,2,2,149,48,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL | NOT WS_TABSTOP
+    CONTROL         "Wipe\r\n && Delete",OWDEL_CHECK,"Button",
+                    BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,4,51,47,18
+END
+
+SHELLEXT_DIALOG DIALOG DISCARDABLE  0, 0, 227, 161
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Shell Extension Settings"
+FONT 8, "Verdana"
+BEGIN
+    DEFPUSHBUTTON   "Install",IDSHELLEXT_OK,183,7,37,13
+    PUSHBUTTON      "Uninstall",IDSHELLEXT_CANCEL,183,22,37,13
+    PUSHBUTTON      "Close",IDOK,183,38,37,13
+    CONTROL         "Show ""Copy (FastCopy)""",RIGHT_COPY_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,11,66,92,13
+    CONTROL         "Show ""Delete (FastCopy)""",RIGHT_DELETE_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,11,81,94,12
+    CONTROL         "Show ""Paste (FastCopy)""",RIGHT_PASTE_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,11,95,97,11
+    CONTROL         "Use sub menu",RIGHT_SUBMENU_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,11,108,81,11
+    CONTROL         "Show ""Copy (FastCopy)""",DD_COPY_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,123,66,93,12
+    CONTROL         "Show ""Move (FastCopy)""",DD_MOVE_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,123,80,94,12
+    CONTROL         "Use sub menu",DD_SUBMENU_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,123,95,81,11
+    CONTROL         "Don't confirm in Delete mode (danger)",
+                    NOCONFIRMDEL_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    10,127,139,11
+    CONTROL         "Don't confirm in Copy(drag&&drop) / Move / Paste mode",
+                    NOCONFIRM_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,
+                    141,200,11
+    CONTROL         "Run in tasktray",TASKTRAY_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,154,126,66,12
+    CONTROL         "Auto close, if no error",AUTOCLOSE_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,123,112,91,12
+    GROUPBOX        "Right Click Extension",IDC_STATIC,6,54,108,70
+    GROUPBOX        "Drag/Drop Extension",IDC_STATIC,117,54,105,56
+    LTEXT           "After installation of shell extension, the FastCopy directory cannot not be moved/deleted. \r\n\r\nIf you want to move/delete it, please uninstall shell extension and reboot or Re-Login",
+                    IDC_STATIC,7,7,170,45,SS_SUNKEN
+END
+
+JOB_DIALOG DIALOG DISCARDABLE  0, 0, 141, 70
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Job Register/Modify & Delete"
+FONT 8, "Verdana"
+BEGIN
+    COMBOBOX        TITLE_COMBO,4,5,132,104,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "Execute",IDOK,86,25,50,16
+    CTEXT           "Register/Modify Job in main window params",JOB_STATIC,4,
+                    23,79,20,SS_SUNKEN
+    CTEXT           "Delete selected jobs",IDC_STATIC,4,48,79,16,SS_SUNKEN
+    PUSHBUTTON      "Delete",JOBDEL_BUTTON,87,47,49,15
+END
+
+MESSAGE_DIALOG DIALOG DISCARDABLE  0, 0, 151, 46
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "FastCopy"
+FONT 8, "Verdana"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,27,29,47,14
+    PUSHBUTTON      "Cancel",IDCANCEL,79,29,48,14
+    EDITTEXT        MESSAGE_EDIT,2,3,146,24,ES_CENTER | ES_MULTILINE | 
+                    ES_READONLY | NOT WS_BORDER | WS_VSCROLL
+END
+
+FINACTION_DIALOG DIALOG DISCARDABLE  0, 0, 198, 238
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Post-Process"
+FONT 8, "Verdana"
+BEGIN
+    COMBOBOX        TITLE_COMBO,50,6,79,99,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    DEFPUSHBUTTON   "Create/Modify",ADD_BUTTON,136,5,57,14
+    PUSHBUTTON      "Delete",DEL_BUTTON,136,21,57,14
+    PUSHBUTTON      "File...",SOUND_BUTTON,9,48,26,13
+    EDITTEXT        SOUND_EDIT,37,48,148,12,ES_AUTOHSCROLL
+    CONTROL         "Only play, if error occurred.",SOUNDERR_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,64,111,12
+    PUSHBUTTON      "Play",PLAY_BUTTON,155,64,29,13
+    PUSHBUTTON      "File...",CMD_BUTTON,9,127,26,13
+    EDITTEXT        CMD_EDIT,37,129,149,12,ES_AUTOHSCROLL
+    CONTROL         "Don't execute, if error occurred.",CMDERR_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,145,119,12
+    CONTROL         "Wait for Finish",WAITCMD_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,133,147,57,9
+    CONTROL         "Standby",SUSPEND_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,11,181,48,13
+    CONTROL         "Hibernation",HIBERNATE_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,11,197,51,13
+    CONTROL         "Shutdown",SHUTDOWN_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,11,213,47,13
+    EDITTEXT        SHUTDOWNTIME_EDIT,151,178,20,14,ES_RIGHT | ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Force mode",FORCE_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,72,197,53,12
+    CONTROL         "Don't execute, if error occurred.",SHUTDOWNERR_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,72,213,118,12
+    LTEXT           "sec",IDC_STATIC,175,180,13,11
+    LTEXT           "Grace",IDC_STATIC,127,180,22,12
+    GROUPBOX        "Play Sound",IDC_STATIC,5,35,188,48
+    GROUPBOX        "Execute command (separator is ';' )",IDC_STATIC,5,88,
+                    188,73
+    GROUPBOX        "Shutdown/Standby",IDC_STATIC,5,166,188,66
+    LTEXT           "ActionName",IDC_STATIC,5,8,42,11
+    LTEXT           "If the path contains space, it requires wrapping by """". It can be specified plural commands that separate by semicolon.   ex) ""C:\\a b\\c.exe"" -x; C:\\d\\e.exe",
+                    IDC_STATIC,11,100,175,25
+END
+
+SETUP_SHEET1 DIALOG DISCARDABLE  0, 0, 207, 92
+STYLE WS_CHILD | WS_TABSTOP
+FONT 8, "Verdana"
+BEGIN
+    EDITTEXT        BUFSIZE_EDIT,6,15,21,13,ES_AUTOHSCROLL
+    CONTROL         "Estimate FinishTime",ESTIMATE_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,41,5,79,9
+    CONTROL         "NonStop (Ignore Errs)",IGNORE_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,41,18,82,10
+    CONTROL         "ACL",ACL_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    127,3,28,10
+    CONTROL         "AltStream",STREAM_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,128,18,45,10
+    CONTROL         "Verify",VERIFY_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,161,3,39,10
+    CONTROL         "",SPEED_SLIDER,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_TOP | TBS_ENABLESELRANGE | WS_TABSTOP,52,32,47,14
+    CONTROL         "Wipe && Delete (for delete mode. slower than normal)",
+                    OWDEL_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,52,
+                    187,10
+    CONTROL         "Always show extended filter. (timestamp/size filter)",
+                    EXTENDFILTER_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    BS_MULTILINE | WS_TABSTOP,4,65,181,10
+    CTEXT           "Full Speed",SPEED_STATIC,100,36,40,9,SS_SUNKEN
+    LTEXT           "Buffer(MB)",-1,2,4,39,10
+    LTEXT           "Speed Control",-1,3,35,49,9
+END
+
+SETUP_SHEET2 DIALOG DISCARDABLE  0, 0, 205, 112
+STYLE WS_CHILD | WS_TABSTOP
+FONT 8, "Verdana"
+BEGIN
+    EDITTEXT        MAXTRANS_EDIT,67,3,19,13,ES_AUTOHSCROLL
+    CONTROL         "Use OS buffer for reading (OS is easy to slow/heavy)",
+                    READOSBUF_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,
+                    21,189,9
+    EDITTEXT        NONBUFMINNTFS_EDIT,38,55,21,12,ES_AUTOHSCROLL
+    EDITTEXT        NONBUFMINFAT_EDIT,92,54,20,12,ES_AUTOHSCROLL
+    LTEXT           "on NTFS",IDC_STATIC,8,56,29,10
+    LTEXT           "on FAT",IDC_STATIC,66,56,25,9
+    LTEXT           "If a file is smaller than specify size(KB),\r\n use OS buffer for writing.",
+                    IDC_STATIC,3,35,187,17
+    LTEXT           "Max I/O size (MB)",IDC_STATIC,3,5,60,9
+    EDITTEXT        DRIVEMAP_EDIT,3,85,47,13,ES_AUTOHSCROLL
+    LTEXT           "Manual settings of Physical Drive group.",IDC_STATIC,3,
+                    74,144,9
+    LTEXT           "ex) if C:D:, E:F: are same Drives, ""CD,EF""",
+                    IDC_STATIC,52,86,145,10
+END
+
+SETUP_SHEET3 DIALOG DISCARDABLE  0, 0, 220, 117
+STYLE WS_CHILD | WS_TABSTOP
+FONT 8, "Verdana"
+BEGIN
+    CONTROL         "Use modified name, if destdir same as src's parent.",
+                    SAMEDIR_RENAME_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    BS_MULTILINE | WS_GROUP | WS_TABSTOP,4,5,182,10
+    CONTROL         "Don't create empty directory, if ""Filter"" is checked.",
+                    EMPTYDIR_CHECK,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,4,17,182,10
+    CONTROL         "Copy Junction/Symlink as Junction/Symlink (not target)",
+                    REPARSE_CHECK,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,4,29,197,10
+    CONTROL         "Change ""Move(Overwrite all)"" to ""Move(Date/Size)""",
+                    MOVEATTR_CHECK,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,4,43,184,10
+    CONTROL         "Move one by one",SERIALMOVE_CHECK,"Button",
+                    BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,4,56,81,10
+    CONTROL         "Move one by one (verify mode)",SERIALVERIFYMOVE_CHECK,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,4,
+                    69,123,10
+END
+
+SETUP_SHEET5 DIALOG DISCARDABLE  0, 0, 203, 91
+STYLE WS_CHILD | WS_TABSTOP
+FONT 8, "Verdana"
+BEGIN
+    LTEXT           "Number of history items for Src/DestDir (need to restart)",
+                    -1,3,3,135,8
+    EDITTEXT        HISTORY_EDIT,140,2,21,13,ES_AUTOHSCROLL
+    CONTROL         "Write to Error Log (FastCopy.log)",ERRLOG_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,18,118,10
+    CONTROL         "Use UTF-8 in ErrLog",UTF8LOG_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,4,30,83,10
+    CONTROL         "Write to File Log (Log\\DATE.log)",FILELOG_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,42,137,10
+    CONTROL         "Write ACL errors to Error Log",ACLERRLOG_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,4,54,170,10
+    CONTROL         "Write AltStream errors to Error Log",STREAMERRLOG_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,67,170,10
+END
+
+SETUP_SHEET4 DIALOG DISCARDABLE  0, 0, 220, 117
+STYLE WS_CHILD | WS_TABSTOP
+FONT 8, "Verdana"
+BEGIN
+    CONTROL         "Use NSA method for Wipe && Delete option (very slow)",
+                    NSA_CHECK,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,2,4,190,10
+    CONTROL         "Try to delete directory, if ""Filter"" is checked.",
+                    DELDIR_CHECK,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,2,17,184,10
+END
+
+SETUP_SHEET6 DIALOG DISCARDABLE  0, 0, 203, 118
+STYLE WS_CHILD | WS_TABSTOP
+FONT 8, "Verdana"
+BEGIN
+    CONTROL         "Don't wait for other running FastCopy to finish",
+                    FORCESTART_CHECK,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,3,4,169,10
+    CONTROL         "Confirm before execute",EXECCONFIRM_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,3,17,91,10
+    CONTROL         "English UI (need to restart)",LCID_CHECK,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_DISABLED | 
+                    WS_TABSTOP,3,28,102,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO MOVEABLE PURE 
+BEGIN
+    SETUP_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        BOTTOMMARGIN, 104
+    END
+
+    MAIN_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 311
+    END
+
+    INPUT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 92
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 31
+    END
+
+    ABOUT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 158
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 74
+    END
+
+    CONFIRM_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 133
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 68
+    END
+
+    COPYCONFIRM_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 151
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 115
+    END
+
+    DELCONFIRM_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 151
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 69
+    END
+
+    SHELLEXT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 220
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 154
+    END
+
+    JOB_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 136
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 64
+    END
+
+    MESSAGE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 148
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 43
+    END
+
+    FINACTION_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 193
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 232
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+MAIN_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "File(&F)"
+    BEGIN
+        MENUITEM "FastCopyDir(&F)",             OPENDIR_MENUITEM
+        MENUITEM "OpenLog(&O)",                 OPENLOG_MENUITEM
+        MENUITEM SEPARATOR
+        MENUITEM "WindowPos Fix(&P)",           FIXPOS_MENUITEM
+        MENUITEM "WindowSize Fix(&S)",          FIXSIZE_MENUITEM
+        MENUITEM SEPARATOR
+        MENUITEM "Close(&C)",                   CLOSE_MENUITEM
+    END
+    POPUP "JobMng(&J)"
+    BEGIN
+        MENUITEM "Add/Modify/Del Job...(&J)",   JOB_MENUITEM
+        MENUITEM SEPARATOR
+    END
+    POPUP "Option(&O)"
+    BEGIN
+        MENUITEM "Main Settings(&M)",           SETUP_MENUITEM
+        MENUITEM "Shell Extension(&S)",         SHELLEXT_MENUITEM
+        MENUITEM SEPARATOR
+        MENUITEM "Auto HDD mode",               AUTODISK_MENUITEM
+        MENUITEM "Same HDD mode",               SAMEDISK_MENUITEM
+        MENUITEM "Diff HDD mode",               DIFFDISK_MENUITEM
+        MENUITEM SEPARATOR
+        POPUP "Post-Proccess(&P)"
+        BEGIN
+            MENUITEM SEPARATOR
+            MENUITEM "Add/Modify/Del...",           FINACT_MENUITEM
+        END
+        MENUITEM "Show Extended Filter(&F)",    EXTENDFILTER_MENUITEM
+        MENUITEM "Swap Source<->DestDir(&W)",   SWAPTARGET_MENUITEM
+    END
+    POPUP "Help(&H)"
+    BEGIN
+        MENUITEM "Help(&H)",                    HELP_MENUITEM
+        MENUITEM "Latest Version(&N)",          FASTCOPYURL_MENUITEM
+        MENUITEM "About FastCopy(&A)",          ABOUT_MENUITEM
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_MKDIR               "Create"
+    IDS_RMDIR               "Delete"
+    IDS_SRC_SELECT          "Select source directory"
+    IDS_DST_SELECT          "Select destination directory"
+    IDS_SAMEDISK            "Same HDD mode"
+    IDS_DIFFDISK            "Diff HDD mode"
+    IDS_FIX_SAMEDISK        "Fix Same HDD"
+    IDS_FIX_DIFFDISK        "Fix Diff HDD"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ALLSKIP             "Diff (No overwrite)"
+    IDS_ATTRCMP             "Diff (Size/Date)"
+    IDS_UPDATECOPY          "Diff (Newer)"
+    IDS_FORCECOPY           "Copy (Overwrite all)"
+    IDS_SYNCCOPY            "Sync (Size/Date)"
+    IDS_MUTUAL              "Sync (MutualNew)"
+    IDS_MOVEATTR            "Move (Size/Date)"
+    IDS_MOVEFORCE           "Move (Overwrite all)"
+    IDS_DELETE              "Delete all"
+    IDS_EXECUTE             "Execute"
+    IDS_CANCEL              "Cancel..."
+    IDS_BEHAVIOR            "Behavior changes whether the end of DestDir character is '\\' or not. Please refer to help for details pushing the ""?"" button. "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_UPDATE              "Because installed shell extension is old, it will be updated."
+    IDS_FILESELECT          "Select files..."
+    IDS_DIRSELECT           "Back to directory select"
+    IDS_SAMEPATHERR         "Source and DestDir are the identical."
+    IDS_PARENTPATHERR       "It can't be moved from parent to child directory"
+    IDS_MOVECONFIRM         "Moving"
+    IDS_SHELLEXT_MODIFY     "Update"
+    IDS_SHELLEXT_EXEC       "Install"
+    IDS_FASTCOPYURL         "http://ipmsg.org/tools/fastcopy.html.en"
+    IDS_FASTCOPYHELP        "fastcopy.chm::/fastcopy_eng.htm"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_EXCEPTIONLOG        "Exception occured.\r\nException info saved to \r\n%s\r\n\r\nPlease send this file to author."
+    IDS_SYNCCONFIRM         "Synchronizing"
+    IDS_BACKSLASHERR        "'\\' is missing after ':'"
+    IDS_ERRSTOP             "Can't continue"
+    IDS_CONFIRMFORCEEND     "Do you want to force application termination?"
+    IDS_STOPCONFIRM         "Do you want to stop copying?"
+    IDS_DELSTOPCONFIRM      "Do you want to stop deleting?"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DELCONFIRM          "Deleting"
+    IDS_DUPCONFIRM          "Creating duplicated files"
+    IDS_NOFILTER_USAGE      "Filter option isn't availale in move mode."
+    IDS_LISTCONFIRM         "Do you want to stop listing?"
+    IDS_JOBNAME             "JobName: <%s>"
+    IDS_JOBNOTFOUND         "Specified Job can't be found"
+    IDS_LISTING             "Listing"
+    IDS_REQUIRE_ADMIN       "Administrator Privilege (Elevate) is required."
+    IDS_FIXPOS_MSG          "Do you want to save current window position?"
+    IDS_FIXSIZE_MSG         "Do you want to save current window size?"
+    IDS_FINACTNAME          "Post-Process Name: <%s>"
+    IDS_FINACTMENU          "Post-Process (%s)"
+    IDS_FINACT_NORMAL       "Normal"
+    IDS_ELEVATE             "Elevate"
+    IDS_SHUTDOWN_MSG        "It will shut down\r\n(Auto executing will be done in %2dsec)"
+    IDS_HIBERNATE_MSG       "It will enter hibernation mode.\r\n(Auto executing will be done in %2dsec)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SUSPEND_MSG         "It will enter standby mode.\r\n(Auto executing will be done in %2dsec)"
+    IDS_FINACT_SUSPEND      "Standby"
+    IDS_FINACT_HIBERNATE    "Hibernate"
+    IDS_FINACT_SHUTDOWN     "Shutdown"
+    IDS_DATEFORMAT_MSG      "Illegal date format.\r\nYYYYMMDD             ex) 20090101\r\n-numberW|D|h|m|s  ex) -52W, -1D"
+    IDS_SIZEFORMAT_MSG      "Illegal size format.\r\n number[K|M|G|T]  ex) 100, 1K, 100M"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_UNDO                "Undo(&U)"
+    IDS_CUT                 "Cut(&T)"
+    IDS_COPY                "Copy(&C)"
+    IDS_PASTE               "Paste(&P)"
+    IDS_DEL                 "Delete(&D)"
+    IDS_SELECTALL           "Select All(&A)"
+    IDS_SETUP_SHEET1        "Defaults"
+    IDS_SETUP_SHEET2        "I/O Settings"
+    IDS_SETUP_SHEET3        "Copy/Move Options"
+    IDS_SETUP_SHEET4        "Delete Options"
+    IDS_SETUP_SHEET5        "Log Settings"
+    IDS_SETUP_SHEET6        "Misc Settings"
+END
+
+#endif    // 英語 (ｱﾒﾘｶ) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

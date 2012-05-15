@@ -1,0 +1,320 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "instrc.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "instrc.h\0"
+END
+
+2 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+SETUP_ICON              ICON    DISCARDABLE     "setup.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+INSTALL_DIALOG DIALOG DISCARDABLE  0, 0, 169, 168
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "FastCopy Setup"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "",INSTALL_STATIC,0,74,168,68,NOT WS_VISIBLE
+    DEFPUSHBUTTON   "開始",IDOK,55,147,59,15
+    PUSHBUTTON      "中止",IDCANCEL,120,147,43,14
+    CONTROL         "1. 指定フォルダにインストール",SETUP_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_NOTIFY | WS_GROUP | WS_TABSTOP,9,
+                    15,106,10
+    CONTROL         "2. アンインストール",UNINSTALL_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_NOTIFY | WS_TABSTOP,9,51,76,10
+    PUSHBUTTON      "参照",FILE_BUTTON,117,12,40,14
+    EDITTEXT        FILE_EDIT,21,29,137,12,ES_AUTOHSCROLL
+    GROUPBOX        "セットアップモード",IDC_STATIC,4,3,160,65,BS_CENTER | 
+                    WS_GROUP
+END
+
+INSTALL_SHEET DIALOG DISCARDABLE  0, 0, 168, 68
+STYLE WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    CONTROL         "プログラムグループに登録",PROGRAM_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,14,11,98,10
+    CONTROL         "デスクトップにショートカットを作成",DESKTOP_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,26,120,10
+    GROUPBOX        "詳細",IDC_STATIC,5,1,159,62,BS_CENTER | WS_GROUP
+    LTEXT           "シェル拡張はインストール後、FastCopy → Setupメニュー → シェル拡張メニューから行います。",
+                    IDC_STATIC,12,40,147,20
+END
+
+INPUT_DIALOG DIALOG DISCARDABLE  0, 0, 85, 39
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "新規ディレクトリ名"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    EDITTEXT        INPUT_EDIT,6,4,74,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "作成",IDOK,11,20,37,14
+    PUSHBUTTON      "中止",IDCANCEL,53,20,23,14
+END
+
+UNINSTALL_SHEET DIALOG DISCARDABLE  0, 0, 168, 68
+STYLE DS_SYSMODAL | WS_CHILD | WS_VISIBLE
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    GROUPBOX        "詳細",IDC_STATIC,5,1,159,62,BS_CENTER | WS_GROUP
+    LTEXT           "シェル拡張を無効化した後、ショートカット類を削除します。\r",
+                    IDC_STATIC,16,15,131,33
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO MOVEABLE PURE 
+BEGIN
+    INSTALL_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 168
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 161
+    END
+
+    INSTALL_SHEET, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 66
+    END
+
+    INPUT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 78
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 32
+    END
+
+    UNINSTALL_SHEET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 161
+        BOTTOMMARGIN, 61
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 24
+//
+
+1                       24      MOVEABLE PURE   "setup.exe.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_MKDIR               "作成"
+    IDS_RMDIR               "削除"
+    IDS_SETUPCOMPLETE       "セットアップは完了しました。\r\nアンインストールは、インストール先ディレクトリ下の setup.exe から行ってください。\r\n\r\n FastCopy を起動しますか？"
+    IDS_UNINSTFIN           "アンインストール（ショートカット削除/シェル拡張無効化）は完了しました。\r\nお手数ですが、安全のため、FastCopyフォルダの削除は手動で行ってください。"
+    IDS_UNINSTSHEXTFIN      "\r\n\r\nシェル拡張を解除しました。お手数ですが、"" fastex*.dll""の削除はOS再起動後に行ってください。"
+    IDS_NOTCREATEDIR        "ディレクトリが作れません"
+    IDS_NOTCREATEFILE       "ファイルをコピーできません"
+    IDS_START               "開始します"
+    IDS_DELAYSETUPCOMPLETE  "セットアップは完了しました。\r\nただし、シェル拡張用dllは、使用中のため、OS再起動後に、置き換え動作を行います。\r\nアンインストールは、インストール先ディレクトリ下の setup.exe から行ってください。\r\n\r\n FastCopy を起動しますか？"
+    IDS_ADMINCHANGE         "特権昇格後には、セットアップパスを変更しないでください。\r\n変更したい場合は、setup.exe を起動しなおしてください。"
+END
+
+#endif    // 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英語 (ｱﾒﾘｶ) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+INPUT_DIALOG DIALOG DISCARDABLE  0, 0, 95, 39
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Directory"
+FONT 8, "Verdana"
+BEGIN
+    EDITTEXT        INPUT_EDIT,6,4,79,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Create",IDOK,10,20,37,14
+    PUSHBUTTON      "Cancel",IDCANCEL,52,20,32,14
+END
+
+INSTALL_DIALOG DIALOG DISCARDABLE  0, 0, 169, 168
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "FastCopy Setup"
+FONT 8, "Verdana"
+BEGIN
+    LTEXT           "",INSTALL_STATIC,0,74,168,68,NOT WS_VISIBLE
+    DEFPUSHBUTTON   "Start",IDOK,55,147,59,15
+    PUSHBUTTON      "Close",IDCANCEL,120,147,43,14
+    CONTROL         "1. Install to following directory",SETUP_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_NOTIFY | WS_GROUP | WS_TABSTOP,9,
+                    15,106,10
+    CONTROL         "2. Uninstall",UNINSTALL_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | BS_NOTIFY | WS_TABSTOP,9,51,76,10
+    PUSHBUTTON      "Browse",FILE_BUTTON,117,12,40,14
+    EDITTEXT        FILE_EDIT,21,29,137,12,ES_AUTOHSCROLL
+    GROUPBOX        "Setup Mode",IDC_STATIC,4,3,160,65,BS_CENTER | WS_GROUP
+END
+
+INSTALL_SHEET DIALOG DISCARDABLE  0, 0, 168, 68
+STYLE WS_CHILD
+FONT 8, "Verdana"
+BEGIN
+    CONTROL         "Register to Program Group",PROGRAM_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,16,12,111,10
+    CONTROL         "Create ShortCut in Desktop",DESKTOP_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,16,26,109,10
+    GROUPBOX        "Detail",IDC_STATIC,5,1,159,58,BS_CENTER | WS_GROUP
+    LTEXT           "It can change Shell Extension settings\r\n in ""Option Menu"" -> ""Shell Extension""",
+                    IDC_STATIC,19,38,134,18
+END
+
+UNINSTALL_SHEET DIALOG DISCARDABLE  0, 0, 168, 67
+STYLE DS_SYSMODAL | WS_CHILD | WS_VISIBLE
+FONT 8, "Verdana"
+BEGIN
+    GROUPBOX        "Detail",IDC_STATIC,5,1,159,62,BS_CENTER | WS_GROUP
+    LTEXT           "Disable ShellExtension, and delete ShortCut Files.",
+                    IDC_STATIC,16,15,131,33
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO MOVEABLE PURE 
+BEGIN
+    INPUT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 88
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 32
+    END
+
+    INSTALL_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 168
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 161
+    END
+
+    INSTALL_SHEET, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 66
+    END
+
+    UNINSTALL_SHEET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 161
+        BOTTOMMARGIN, 60
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_MKDIR               "Create"
+    IDS_RMDIR               "Delete"
+    IDS_SETUPCOMPLETE       "The setup was completed. \r\nIf you want to uninstall, please execute setup.exe of installed directory.\r\nIs FastCopy started?"
+    IDS_UNINSTFIN           "Uninstallation(delete shortcuts and disable shell extention) was completed. \r\nPlease delete the FastCopy folder by yourself."
+    IDS_UNINSTSHEXTFIN      "\r\n\r\nThe shell extention was uninstalled. \nPlease delete ""fastext(N).DLL"" after it reactivates. "
+    IDS_NOTCREATEDIR        "Can't create a directory"
+    IDS_NOTCREATEFILE       "Can't copy a file"
+    IDS_START               "Starting"
+    IDS_DELAYSETUPCOMPLETE  "The setup was completed. \r\nBut FastCopy's dll will update after reboot.\r\nIf you want to uninstall, please execute setup.exe of installed directory.\r\nIs FastCopy started?"
+    IDS_ADMINCHANGE         "Please don't change setup path after elevate\r\nIf you want to change it, please restart setup.exe."
+END
+
+#endif    // 英語 (ｱﾒﾘｶ) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

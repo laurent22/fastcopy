@@ -82,6 +82,10 @@ TMainDlg::TMainDlg() : TDlg(MAIN_DIALOG), aboutDlg(this), setupDlg(&cfg, this),
 	WCHAR	*virtual_dir = NULL;
     taskbarList = NULL;
 
+	taskbarProgressBarState.tbpFlags = TBPF_NOPROGRESS;
+	taskbarProgressBarState.ullCompleted = 0;
+	taskbarProgressBarState.ullTotal = 0;
+
 	orgArgv = CommandLineToArgvV(::GetCommandLineV(), &orgArgc);
 	if (IsWinVista() && TIsUserAnAdmin() && TIsEnableUAC()) {
 		GetRunasInfo(&user_dir, &virtual_dir);
@@ -2866,12 +2870,21 @@ BOOL TMainDlg::CalcInfo(double *doneRate, int *remain_sec, int *total_sec)
 
 void TMainDlg::SetTaskbarProgressState(TBPFLAG tbpFlags) {
 	if (!taskbarList) return;
+	if (taskbarProgressBarState.tbpFlags == tbpFlags) return;
+
 	taskbarList->SetProgressState(hWnd, tbpFlags);
+
+	taskbarProgressBarState.tbpFlags = tbpFlags;
 }
 
 void TMainDlg::SetTaskbarProgressValue(ULONGLONG ullCompleted, ULONGLONG ullTotal) {
 	if (!taskbarList) return;
+	if (taskbarProgressBarState.ullCompleted == ullCompleted && taskbarProgressBarState.ullTotal == ullTotal) return;
+
 	taskbarList->SetProgressValue(hWnd, ullCompleted, ullTotal);
+
+	taskbarProgressBarState.ullCompleted = ullCompleted;
+	taskbarProgressBarState.ullTotal = ullTotal;
 }
 
 BOOL TMainDlg::SetInfo(BOOL is_task_tray, BOOL is_finish_status)

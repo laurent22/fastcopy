@@ -62,6 +62,12 @@ struct CopyInfo {
 	FastCopy::OverWrite	overWrite;
 };
 
+struct TaskbarProgressBarState {
+	TBPFLAG tbpFlags;
+	ULONGLONG ullCompleted;
+	ULONGLONG ullTotal;
+};
+
 #define MAX_NORMAL_FASTCOPY_ICON	4
 #define FCNORMAL_ICON_INDEX			0
 #define FCWAIT_ICON_INDEX			MAX_NORMAL_FASTCOPY_ICON
@@ -92,7 +98,13 @@ protected:
 	int				lastTotalSec;
 	int				calcTimes;
 	BOOL			isAbort;
+
+/* Taskbar progress bar properties */
 	ITaskbarList3*  taskbarList;
+	// We keep a reference to the progress bar state for optimization purposes
+	// i.e. we don't call SetProgressState/SetProgressValue if the state hasn't changed
+	TaskbarProgressBarState	taskbarProgressBarState;
+/* End of Taskbar progress bar properties */
 
 /* share to runas */
 	AutoCloseLevel autoCloseLevel;

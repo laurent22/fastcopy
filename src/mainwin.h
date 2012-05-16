@@ -20,13 +20,8 @@
 #include "version.h"
 #include <stddef.h>
 
-
+// Required for ITaskbarList3
 #include "ShObjIdl.h"
-
-
-
-
-
 
 #ifdef _WIN64
 #define FASTCOPY_TITLE		"FastCopy(64bit)"
@@ -97,7 +92,7 @@ protected:
 	int				lastTotalSec;
 	int				calcTimes;
 	BOOL			isAbort;
-	ITaskbarList3* taskbarList;
+	ITaskbarList3*  taskbarList;
 
 /* share to runas */
 	AutoCloseLevel autoCloseLevel;
@@ -224,6 +219,8 @@ protected:
 	BOOL	CheckVerifyExtension();
 	BOOL	StartFileLog();
 	void	EndFileLog();
+	void	SetTaskbarProgressState(TBPFLAG tbpFlags);
+	void	SetTaskbarProgressValue(ULONGLONG ullCompleted, ULONGLONG ullTotal);
 
 public:
 	TMainDlg();

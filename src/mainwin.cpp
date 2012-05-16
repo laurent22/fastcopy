@@ -2864,6 +2864,16 @@ BOOL TMainDlg::CalcInfo(double *doneRate, int *remain_sec, int *total_sec)
 	return	TRUE;
 }
 
+void TMainDlg::SetTaskbarProgressState(TBPFLAG tbpFlags) {
+	if (!taskbarList) return;
+	taskbarList->SetProgressState(hWnd, tbpFlags);
+}
+
+void TMainDlg::SetTaskbarProgressValue(ULONGLONG ullCompleted, ULONGLONG ullTotal) {
+	if (!taskbarList) return;
+	taskbarList->SetProgressValue(hWnd, ullCompleted, ullTotal);
+}
+
 BOOL TMainDlg::SetInfo(BOOL is_task_tray, BOOL is_finish_status)
 {
 	char	buf[512];

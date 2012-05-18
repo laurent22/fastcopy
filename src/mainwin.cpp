@@ -1535,6 +1535,7 @@ BOOL TMainDlg::ExecCopy(DWORD exec_flags)
 		}
 		else {
 			isDelay = TRUE;
+			SetTaskbarProgressState(TBPF_INDETERMINATE);
 			::SetTimer(hWnd, FASTCOPY_TIMER, 300, NULL);
 			if (isTaskTray)
 				TaskTray(NIM_MODIFY, hMainIcon[FCWAIT_ICON_INDEX], FASTCOPY);
@@ -2924,6 +2925,8 @@ BOOL TMainDlg::SetInfo(BOOL is_task_tray, BOOL is_finish_status)
 	&& doneRate >= 0.0001) {
 		len += sprintf(buf + len, " -- Remain %02d:%02d:%02d (%d%%) --\r\n",
 				remain_h, remain_m, remain_s, doneRatePercent);
+		SetTaskbarProgressState(TBPF_NORMAL);
+		SetTaskbarProgressValue(doneRatePercent, 100);
 	}
 	if (ti.total.isPreSearch) {
 		len += sprintf(buf + len,
@@ -2934,6 +2937,7 @@ BOOL TMainDlg::SetInfo(BOOL is_task_tray, BOOL is_finish_status)
 			ti.total.preFiles, ti.total.preDirs,
 			(double)ti.tickCount / 1000,
 			(double)ti.total.preFiles * 1000 / ti.tickCount);
+		SetTaskbarProgressState(TBPF_INDETERMINATE);
 	}
 	else if (info.mode == FastCopy::DELETE_MODE) {
 		len += sprintf(buf + len,
@@ -2956,6 +2960,7 @@ BOOL TMainDlg::SetInfo(BOOL is_task_tray, BOOL is_finish_status)
 			(double)ti.tickCount / 1000,
 			(double)ti.total.deleteFiles * 1000 / ti.tickCount,
 			(double)ti.total.writeTrans / ((double)ti.tickCount / 1000) / (1024 * 1024));
+		SetTaskbarProgressState(TBPF_INDETERMINATE);
 	}
 	else {
 		if (IsListing()) {
@@ -2971,6 +2976,7 @@ BOOL TMainDlg::SetInfo(BOOL is_task_tray, BOOL is_finish_status)
 				  ti.total.linkFiles :
 				  ti.total.writeDirs
 				, ti.total.writeDirs);
+			SetTaskbarProgressState(TBPF_INDETERMINATE);
 		}
 		else {
 			len += sprintf(buf + len,
@@ -2988,6 +2994,16 @@ BOOL TMainDlg::SetInfo(BOOL is_task_tray, BOOL is_finish_status)
 				  ti.total.linkFiles :
 				  ti.total.writeDirs
 				, ti.total.writeDirs);
+			if (!(info.flags & FastCopy::PRE_SEARCH)) {
+				// Use this only in non-estimate mode
+				// In estimate mode, the doneRatePercent variable above is more accurate
+				if (ti.total.writeTrans <= 0) {
+					SetTaskbarProgressState(TBPF_INDETERMINATE);
+				} else {
+					SetTaskbarProgressState(TBPF_NORMAL);
+					SetTaskbarProgressValue(ti.total.writeTrans, ti.total.readTrans);
+				}
+			}
 		}
 
 		if (ti.total.skipFiles || ti.total.skipDirs) {
@@ -3071,6 +3087,11 @@ BOOL TMainDlg::SetInfo(BOOL is_task_tray, BOOL is_finish_status)
 		sprintf(buf, "(ErrFiles : %d / ErrDirs : %d)", ti.total.errFiles, ti.total.errDirs);
 		SetDlgItemText(ERRSTATUS_STATIC, buf);
 	}
+
+	if (is_finish_status) {
+		SetTaskbarProgressState(TBPF_NOPROGRESS);
+	}
+
 	return	TRUE;
 }
 
@@ -3093,7 +3114,7 @@ BOOL TMainDlg::SetWindowTitle()
 	int		len = 0;
 
 	if ((info.flags & FastCopy::PRE_SEARCH) && !ti.total.isPreSearch && doneRatePercent >= 0
-	&& fastCopy.IsStarting()) {
+		&& fastCopy.IsStarting() && !taskbarList) {
 		len += sprintfV(MakeAddr(buf, len), IS_WINNT_V ? (void *)L"(%d%%) " : (void *)"(%d%%) ",
 				doneRatePercent);
 	}

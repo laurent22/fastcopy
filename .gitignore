@@ -1,4 +1,5 @@
 /Debug
+/Release
 /_UpgradeReport_Files
 /FastCopy.ncb
 /UpgradeLog.XML
@@ -22,3 +23,5 @@
 /shellext.vcxproj.user
 /src/NOTES.txt
 /ipch
+/FastCopy.exe
+/FastCopy.ini

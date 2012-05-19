@@ -1844,18 +1844,19 @@ BOOL TMainDlg::EventActivateApp(BOOL fActivate, DWORD dwThreadID)
 
 BOOL TMainDlg::EvTaskbarButtonCreated()
 {
-	// TODO: Check Windows 7
-	// TODO: elevated rights?
+	DWORD dwMajor = LOBYTE(LOWORD(GetVersion()));
+	DWORD dwMinor = HIBYTE(LOWORD(GetVersion()));
+	bool isWindows7OrMore = dwMajor > 6 || (dwMajor == 6 && dwMinor > 0);
+
+	if (!isWindows7OrMore) return FALSE;
+
 	if (taskbarInterface) {
 		taskbarInterface->Release();
 		taskbarInterface = NULL;
 	}
 
 	HRESULT hr = CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&taskbarInterface));
-	if (!SUCCEEDED(hr)) {
-		// TODO: handle FAIL
-	}
-
+	if (!SUCCEEDED(hr)) { /* FAIL */ }
 	return FALSE;
 }
 

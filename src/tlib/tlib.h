@@ -380,6 +380,7 @@ protected:
 	BOOL	modalFlg;
 	int		maxItems;
 	DlgItem	*dlgItems;
+	UINT	taskbarButtonCreatedMessage;
 
 public:
 	TDlg(UINT	resid=0, TWin *_parent = NULL);

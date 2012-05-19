@@ -10,6 +10,7 @@ static char *tdlg_id =
 	======================================================================== */
 
 #include "tlib.h"
+#include <WinUser.h>
 
 TDlg::TDlg(UINT _resId, TWin *_parent) : TWin(_parent)
 {
@@ -17,6 +18,7 @@ TDlg::TDlg(UINT _resId, TWin *_parent) : TWin(_parent)
 	modalFlg = FALSE;
 	maxItems = 0;
 	dlgItems = NULL;
+	taskbarButtonCreatedMessage = RegisterWindowMessage(_T("TaskbarButtonCreated"));
 }
 
 TDlg::~TDlg()
@@ -32,10 +34,21 @@ BOOL TDlg::Create(HINSTANCE hInstance)
 	hWnd = ::CreateDialogV(hInstance ? hInstance : TApp::GetInstance(), (void *)resId,
 				parent ? parent->hWnd : NULL, (DLGPROC)TApp::WinProc);
 
-	if (hWnd)
+	if (hWnd) {
+		// We have to tell Windows to allow the TaskbarButtonCreated message
+		// to be sent to our window if our app is running elevated.
+		// See http://www.codeproject.com/Articles/42345/Windows-7-Goodies-in-C-Taskbar-Progress-and-Status
+#if (WINVER >= 0x0600 && WINVER < 0x0601)
+		ChangeWindowMessageFilter(taskbarButtonCreatedMessage, MSGFLT_ADD);
+#endif
+#if (WINVER >= 0x0601)
+		CHANGEFILTERSTRUCT cfs = { sizeof(CHANGEFILTERSTRUCT) };
+		ChangeWindowMessageFilterEx(hWnd, taskbarButtonCreatedMessage, MSGFLT_ALLOW, &cfs );
+#endif
 		return	TRUE;
-	else
+	} else {
 		return	TApp::GetApp()->DelWin(this), FALSE;
+	}
 }
 
 int TDlg::Exec(void)
@@ -57,12 +70,10 @@ LRESULT TDlg::WinProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	LRESULT	result = 0;
 
-  UINT uTaskbarBtnCreatedMsg = RegisterWindowMessage ( _T("TaskbarButtonCreated") );
-
-  if (uMsg == uTaskbarBtnCreatedMsg) {
-    EvTaskbarButtonCreated();
-    return 0;
-  }
+	if (uMsg == taskbarButtonCreatedMessage) {
+		EvTaskbarButtonCreated();
+		return 0;
+	}
 
 	switch (uMsg)
 	{

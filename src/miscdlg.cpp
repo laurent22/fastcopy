@@ -88,6 +88,7 @@ BOOL TSetupSheet::EvCreate(LPARAM lParam)
 		CheckDlgButton(VERIFY_CHECK, cfg->enableVerify);
 		CheckDlgButton(OWDEL_CHECK, cfg->enableOwdel);
 		CheckDlgButton(EXTENDFILTER_CHECK, cfg->isExtendFilter);
+		CheckDlgButton(MINITOTRAY_CHECK, cfg->isMinimizeToTray);
 		SendDlgItemMessage(SPEED_SLIDER, TBM_SETRANGE, FALSE,
 			MAKELONG(SPEED_SUSPEND, SPEED_FULL));
 		SetSpeedLevelLabel(this, cfg->speedLevel);
@@ -158,6 +159,7 @@ BOOL TSetupSheet::GetData()
 		cfg->enableVerify = IsDlgButtonChecked(VERIFY_CHECK);
 		cfg->enableOwdel = IsDlgButtonChecked(OWDEL_CHECK);
 		cfg->isExtendFilter = IsDlgButtonChecked(EXTENDFILTER_CHECK);
+		cfg->isMinimizeToTray = IsDlgButtonChecked(MINITOTRAY_CHECK);
 		cfg->speedLevel = (int)SendDlgItemMessage(SPEED_SLIDER, TBM_GETPOS, 0, 0);
 	}
 	else if (resId == SETUP_SHEET2) {

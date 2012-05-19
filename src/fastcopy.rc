@@ -311,6 +311,9 @@ BEGIN
     CONTROL         "拡張フィルタ（日付/サイズフィルタ）を常に表示する",
                     EXTENDFILTER_CHECK,"Button",BS_AUTOCHECKBOX | 
                     BS_MULTILINE | WS_TABSTOP,5,78,168,11
+	CONTROL         "Minimize to system tray",
+                    MINITOTRAY_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    BS_MULTILINE | WS_TABSTOP,4,78,181,10
     CTEXT           "Full Speed",SPEED_STATIC,85,43,38,10,SS_SUNKEN
     LTEXT           "Buffer(MB)",IDC_STATIC,4,6,35,10
     LTEXT           "速度調整",IDC_STATIC,5,45,30,10
@@ -1156,6 +1159,9 @@ BEGIN
     CONTROL         "Always show extended filter. (timestamp/size filter)",
                     EXTENDFILTER_CHECK,"Button",BS_AUTOCHECKBOX | 
                     BS_MULTILINE | WS_TABSTOP,4,65,181,10
+	CONTROL         "Minimize to system tray",
+                    MINITOTRAY_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    BS_MULTILINE | WS_TABSTOP,4,78,181,10
     CTEXT           "Full Speed",SPEED_STATIC,100,36,40,9,SS_SUNKEN
     LTEXT           "Buffer(MB)",-1,2,4,39,10
     LTEXT           "Speed Control",-1,3,35,49,9

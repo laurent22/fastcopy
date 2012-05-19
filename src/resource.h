@@ -293,6 +293,7 @@
 #define DIRSELECT_BUTTON                3336
 #define MKDIR_BUTTON                    3380
 #define RMDIR_BUTTON                    3381
+#define MINITOTRAY_CHECK				3382
 #define FASTCOPY_ICON                   4000
 #define FASTCOPY2_ICON                  4001
 #define FASTCOPY3_ICON                  4002

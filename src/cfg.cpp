@@ -575,6 +575,8 @@ BOOL Cfg::WriteIni(void)
 //	int.SetInt(ALLOWCONTFSIZE_KEY, allowContFsize);
 //	ini.SetInt(RECREATE_KEY, isReCreate);
 	ini.SetInt(EXTENDFILTER_KEY, isExtendFilter);
+	ini.SetInt(FC_VERSIONINTITLE_KEY, isVersionInWindowTitle);
+	ini.SetInt(FC_MINIMIZETOTRAY_KEY, isMinimizeToTray);
 
 	char	val[256];
 	sprintf(val, "%d,%d,%d,%d", winpos.x, winpos.y, winsize.cx, winsize.cy);

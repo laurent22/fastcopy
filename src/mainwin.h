@@ -100,7 +100,7 @@ protected:
 	BOOL			isAbort;
 
 /* Taskbar progress bar properties */
-	ITaskbarList3*  taskbarList;
+	ITaskbarList3*  taskbarInterface;
 	// We keep a reference to the progress bar state for optimization purposes
 	// i.e. we don't call SetProgressState/SetProgressValue if the state hasn't changed
 	TaskbarProgressBarState	taskbarProgressBarState;

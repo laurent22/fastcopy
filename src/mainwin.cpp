@@ -80,7 +80,7 @@ TMainDlg::TMainDlg() : TDlg(MAIN_DIALOG), aboutDlg(this), setupDlg(&cfg, this),
 {
 	WCHAR	*user_dir = NULL;
 	WCHAR	*virtual_dir = NULL;
-    taskbarList = NULL;
+    taskbarInterface = NULL;
 
 	taskbarProgressBarState.tbpFlags = TBPF_NOPROGRESS;
 	taskbarProgressBarState.ullCompleted = 0;
@@ -1535,7 +1535,11 @@ BOOL TMainDlg::ExecCopy(DWORD exec_flags)
 		}
 		else {
 			isDelay = TRUE;
-			SetTaskbarProgressState(TBPF_INDETERMINATE);
+			// There's no indeterminate/paused state
+			// so just use to pause state and fill up
+			// the bar
+			SetTaskbarProgressValue(1, 1);
+			SetTaskbarProgressState(TBPF_PAUSED);
 			::SetTimer(hWnd, FASTCOPY_TIMER, 300, NULL);
 			if (isTaskTray)
 				TaskTray(NIM_MODIFY, hMainIcon[FCWAIT_ICON_INDEX], FASTCOPY);
@@ -1842,12 +1846,12 @@ BOOL TMainDlg::EvTaskbarButtonCreated()
 {
 	// TODO: Check Windows 7
 	// TODO: elevated rights?
-	if (taskbarList) {
-		taskbarList->Release();
-		taskbarList = NULL;
+	if (taskbarInterface) {
+		taskbarInterface->Release();
+		taskbarInterface = NULL;
 	}
 
-	HRESULT hr = CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&taskbarList));
+	HRESULT hr = CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&taskbarInterface));
 	if (!SUCCEEDED(hr)) {
 		// TODO: handle FAIL
 	}
@@ -2870,19 +2874,19 @@ BOOL TMainDlg::CalcInfo(double *doneRate, int *remain_sec, int *total_sec)
 }
 
 void TMainDlg::SetTaskbarProgressState(TBPFLAG tbpFlags) {
-	if (!taskbarList) return;
+	if (!taskbarInterface) return;
 	if (taskbarProgressBarState.tbpFlags == tbpFlags) return;
 
-	taskbarList->SetProgressState(hWnd, tbpFlags);
+	taskbarInterface->SetProgressState(hWnd, tbpFlags);
 
 	taskbarProgressBarState.tbpFlags = tbpFlags;
 }
 
 void TMainDlg::SetTaskbarProgressValue(ULONGLONG ullCompleted, ULONGLONG ullTotal) {
-	if (!taskbarList) return;
+	if (!taskbarInterface) return;
 	if (taskbarProgressBarState.ullCompleted == ullCompleted && taskbarProgressBarState.ullTotal == ullTotal) return;
 
-	taskbarList->SetProgressValue(hWnd, ullCompleted, ullTotal);
+	taskbarInterface->SetProgressValue(hWnd, ullCompleted, ullTotal);
 
 	taskbarProgressBarState.ullCompleted = ullCompleted;
 	taskbarProgressBarState.ullTotal = ullTotal;
@@ -3114,7 +3118,7 @@ BOOL TMainDlg::SetWindowTitle()
 	int		len = 0;
 
 	if ((info.flags & FastCopy::PRE_SEARCH) && !ti.total.isPreSearch && doneRatePercent >= 0
-		&& fastCopy.IsStarting() && !taskbarList) {
+		&& fastCopy.IsStarting() && !taskbarInterface) {
 		len += sprintfV(MakeAddr(buf, len), IS_WINNT_V ? (void *)L"(%d%%) " : (void *)"(%d%%) ",
 				doneRatePercent);
 	}

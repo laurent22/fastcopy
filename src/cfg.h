@@ -182,6 +182,7 @@ public:
 	BOOL	shextNoConfirmDel;
 	BOOL	execConfirm;
 	BOOL	isVersionInWindowTitle;
+	BOOL	isMinimizeToTray;
 	void	**srcPathHistory;
 	void	**dstPathHistory;
 	void	**delPathHistory;

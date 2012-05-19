@@ -907,6 +907,7 @@ BOOL TMainDlg::EvSysCommand(WPARAM uCmdType, POINTS pos)
 		return	TRUE;
 
 	case SC_MINIMIZE:
+		if (!cfg.isMinimizeToTray) return FALSE;
 		PostMessage(WM_FASTCOPY_HIDDEN, 0, 0);
 		return	TRUE;
 	}

@@ -78,6 +78,7 @@ static char *cfg_id =
 #define EXTENDFILTER_KEY		"extend_filter"
 #define WINPOS_KEY				"win_pos"
 #define FC_VERSIONINTITLE_KEY	"version_in_window_title"
+#define FC_MINIMIZETOTRAY_KEY	"minimize_to_tray"
 
 #define NONBUFMINSIZENTFS_KEY	"nonbuf_minsize_ntfs2"
 #define NONBUFMINSIZEFAT_KEY	"nonbuf_minsize_fat"
@@ -360,6 +361,7 @@ BOOL Cfg::ReadIni(void *user_dir, void *virtual_dir)
 	isReCreate		= ini.GetInt(RECREATE_KEY, FALSE);
 	isExtendFilter	= ini.GetInt(EXTENDFILTER_KEY, FALSE);
 	isVersionInWindowTitle = ini.GetInt(FC_VERSIONINTITLE_KEY, TRUE);
+	isMinimizeToTray = ini.GetInt(FC_MINIMIZETOTRAY_KEY, TRUE);
 
 	ini.GetStr(WINPOS_KEY, buf, MAX_PATH, "");
 	winpos.x   =      (p = strtok(buf,  ", \t")) ? atoi(p) : INVALID_POINTVAL;

@@ -181,6 +181,7 @@ public:
 	BOOL	shextNoConfirm;
 	BOOL	shextNoConfirmDel;
 	BOOL	execConfirm;
+	BOOL	isVersionInWindowTitle;
 	void	**srcPathHistory;
 	void	**dstPathHistory;
 	void	**delPathHistory;

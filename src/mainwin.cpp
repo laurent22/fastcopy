@@ -3107,7 +3107,11 @@ BOOL TMainDlg::SetWindowTitle()
 
 	if (!title) {
 		char	buf[128];
-		sprintf(buf, "%s %s", FASTCOPY, GetVersionStr());
+		if (cfg.isVersionInWindowTitle) {
+			sprintf(buf, "%s %s", FASTCOPY, GetVersionStr());
+		} else {
+			sprintf(buf, "%s", FASTCOPY);
+		}
 		title = (void *)_title;
 
 		if (IS_WINNT_V)	AtoW(buf, _title, 512);
@@ -3120,6 +3124,7 @@ BOOL TMainDlg::SetWindowTitle()
 
 	if ((info.flags & FastCopy::PRE_SEARCH) && !ti.total.isPreSearch && doneRatePercent >= 0
 		&& fastCopy.IsStarting() && !taskbarInterface) {
+		// Don't show percentage in title if taskbar progress bar is enabled.
 		len += sprintfV(MakeAddr(buf, len), IS_WINNT_V ? (void *)L"(%d%%) " : (void *)"(%d%%) ",
 				doneRatePercent);
 	}

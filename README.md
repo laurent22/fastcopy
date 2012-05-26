@@ -9,7 +9,7 @@ This is a Git repository for [FastCopy](http://ipmsg.org/tools/fastcopy.html.en)
 
 According to the official website, all source code has been opened to the public in the BSD license.
 
-### Changes
+#### Changes
 
 This version of FastCopy was based on version 2.08 (2011-02-28), with the following new features:
 
